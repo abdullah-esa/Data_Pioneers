@@ -44,7 +44,3 @@ Built an interactive dashboard (Tableau/Power BI) featuring:
 * **Tableau / Power BI:** For data visualization and storytelling.
 * **Jupyter Notebook:** For documenting the analytical process.
 
-## 🚀 Key Findings
-*(To be updated with your actual results)*
-* **Example:** Fridays between 5 PM and 7 PM show the highest accident frequency due to rush hour traffic.
-* **Example:** While wet roads cause many accidents, fatal accidents are surprisingly more common on dry roads due to higher driving speeds.
