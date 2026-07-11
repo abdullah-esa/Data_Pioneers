@@ -1,7 +1,3 @@
-Here is your complete **UK Road Safety Project README** generated in the exact Markdown presentation style as your e-commerce repository reference, complete with dynamic status badges, organized tables, structural directories, clean SQL blocks, and precise metric cross-profiling.
-
----
-
 # 🗺️ UK Road Safety Analytics - Advanced Business Intelligence Platform
 
 A production-ready data engineering and business intelligence infrastructure built from scratch to analyze police-reported traffic accidents across the United Kingdom. Migrating from flat CSV structures to a highly optimized PostgreSQL Star Schema, this framework cross-profiles over **2 million incidents** to locate micro-temporal risk trends, spatial population variances, and severe roadway infrastructure vulnerabilities.
@@ -17,6 +13,7 @@ A production-ready data engineering and business intelligence infrastructure bui
 * [Key Performance Indicators](https://www.google.com/search?q=%23-key-performance-indicators)
 * [Testing & Quality Assurance](https://www.google.com/search?q=%23-testing--quality-assurance)
 * [Future Roadmap](https://www.google.com/search?q=%23-future-roadmap)
+* [Team Members](https://www.google.com/search?q=%23-team-members)
 * [Contributing Guidelines](https://www.google.com/search?q=%23-contributing-guidelines)
 * [Version History](https://www.google.com/search?q=%23-version-history)
 
@@ -53,10 +50,14 @@ A production-ready data engineering and business intelligence infrastructure bui
  |
 | **Update Integrity** | ✅ Safe from update anomalies 
 
- | ⚠️ High redundancy risks |
+ | ⚠️ High redundancy risks 
+
+ |
 | **Granularity Slicing** | Event level + Participant level 
 
- | Combined un-indexed lines |
+ | Combined un-indexed lines 
+
+ |
 | **Coordinate Handling** | Exact `DECIMAL(10,8)` GPS formatting 
 
  | String/Float conversion lag |
@@ -72,9 +73,15 @@ A production-ready data engineering and business intelligence infrastructure bui
 
 | Component | Target Framework Layer | Version/Scope |
 | --- | --- | --- |
-| **Database Engine** | PostgreSQL | 12.0+ Server |
-| **Query Framework** | Data Definition Language (DDL) / SQL Aggregations | Advanced PostgreSQL |
-| **BI Architecture** | Power BI Desktop | Star Schema Relationship Engine 
+| **Database Engine** | PostgreSQL 
+
+ | 12.0+ Server |
+| **Query Framework** | Data Definition Language (DDL) / SQL Aggregations 
+
+ | Advanced PostgreSQL |
+| **BI Architecture** | Power BI Desktop 
+
+ | Star Schema Relationship Engine 
 
  |
 | **Mapping Engine** | Microsoft Bing Maps API | Precision Geospatial Hotspots 
@@ -275,16 +282,16 @@ uk-road-safety-analytics/
 │
 ├── config/
 │   ├── sql/
-[cite_start]│   │   ├── schema_blueprint.sql     # Database structure DDL [cite: 40]
-[cite_start]│   │   ├── quality_validation.sql   # Data quality checks [cite: 165]
-[cite_start]│   │   └── analytical_queries.sql   # Core exploratory queries [cite: 114]
+│   │   ├── schema_blueprint.sql     # Database structure DDL
+│   │   ├── quality_validation.sql   # Data quality checks
+│   │   └── analytical_queries.sql   # Core exploratory queries
 │   └── database.env                 # Core engine environment variables
 │
 ├── assets/
 │   ├── dashboards/
-[cite_start]│   │   └── UK_Road_Safety.pbix      # Finished Power BI application file [cite: 43]
+│   │   └── UK_Road_Safety.pbix      # Finished Power BI application file
 │   └── branding/
-[cite_start]│       └── logo.png                 # Data Pioneers group icon [cite: 1]
+│       └── logo.png                 # Data Pioneers group icon
 │
 ├── documents/
 │   ├── FinalPresentation.pdf        # Stakeholder report file
@@ -305,11 +312,11 @@ Analysis reveals that **Single Carriageway** layouts pose a significant safety r
 
 | Infrastructure Class | Fine Weather Count | Rainy Conditions | Aggregate Incidents |
 | --- | --- | --- | --- |
-| **Single Carriageway** | <br>**1,229,680** 
+| **Single Carriageway** | 1,229,680 
 
- | <br>**175,893** 
+ | 175,893 
 
- | <br>**1,528K** 
+ | 1,528K 
 
  |
 | **Dual Carriageway** | 238,876 
@@ -341,7 +348,7 @@ Analysis reveals that **Single Carriageway** layouts pose a significant safety r
 
  |
 
-> 💡 **Key Insight:** Single Carriageway roads drive the absolute majority of traffic collisions, generating **1.528 million incidents** across the historical scope.
+> 💡 **Key Insight:** Single Carriageway roads drive the absolute majority of traffic collisions, generating **1.528 million incidents** across the infrastructure matrix.
 > 
 > 
 
@@ -366,15 +373,20 @@ Accident frequencies strongly correlate with commercial transit peaks, identifyi
 
 The data challenges the assumption that low visibility is the primary driver of traffic accidents.
 
-```
-[cite_start]Daylight Visibility ────────────────────────────────────────── 73.08% [cite: 257]
-[cite_start]Darkness (Artificial Illumination Active) ───────────── 19.74% [cite: 256]
-[cite_start]Darkness (No Street Lighting) ───────────────────────── 5.50% [cite: 255]
+* 
+**Daylight Visibility:** 73.08% of all recorded incidents occur during clear daylight conditions.
 
-```
 
 * 
-**Surface Index:** **1.42 million crashes** happen on completely **Dry Surfaces**, indicating that driver behavior and traffic volumes influence incident rates more than external environmental elements.
+**Darkness (Artificial Illumination Active):** 19.74% of incidents happen under streetlights.
+
+
+* 
+**Darkness (No Street Lighting):** 5.50% of incidents occur on completely unlit dark roadways.
+
+
+* 
+**Surface Index:** 1.42 million crashes happen on completely **Dry Surfaces**, indicating that driver behavior and traffic volumes influence incident rates more than external environmental elements.
 
 
 * 
@@ -390,30 +402,46 @@ The core operational safety metrics across the historical scope are established 
 
 | Safety Target Variable | Current Platform Metric Evaluation | Operational Context |
 | --- | --- | --- |
-| **Total Tracked Accidents** | <br>**2,000,000 (2M)** 
+| **Total Tracked Accidents** | 2,000,000 (2M) 
 
- | Global absolute accident volume metric. |
-| **Total Recorded Casualties** | <br>**3,000,000 (3M)** 
+ | Global absolute accident volume metric.
 
- | Aggregate injuries recorded. |
-| **Total System Fatalities** | <br>**49,000 (49K)** 
+ |
+| **Total Recorded Casualties** | 3,000,000 (3M) 
 
- | Absolute life loss tracking marker. |
-| **Inherent Fatality Rate** | <br>**2.40%** 
+ | Aggregate injuries recorded across all data rows.
 
- | Mean fatality calculation per incident. |
-| **Casualty Density Index** | <br>**1.35** 
+ |
+| **Total System Fatalities** | 49,000 (49K) 
 
- | Mean casualty density per transaction. |
-| **Annual Crash Average** | <br>**157.48K** 
+ | Absolute life loss tracking marker.
 
- | Long-term macro year tracking mean. |
-| **Serious Scale Injuries** | <br>**286,000 (286K)** 
+ |
+| **Inherent Fatality Rate** | 2.40% 
 
- | Total high-severity non-fatal incidents. |
-| **Fixed Object Collisions** | <br>**84,000 (84K)** 
+ | Mean fatality calculation per recorded incident.
 
- | Incidents involving impacts with static assets. |
+ |
+| **Casualty Density Index** | 1.35 
+
+ | Mean casualty density per transaction.
+
+ |
+| **Annual Crash Average** | 157.48K 
+
+ | Long-term macro year tracking mean.
+
+ |
+| **Serious Scale Injuries** | 286,000 (286K) 
+
+ | Total high-severity non-fatal incidents.
+
+ |
+| **Fixed Object Collisions** | 84,000 (84K) 
+
+ | Incidents involving impacts with static infrastructure.
+
+ |
 
 ---
 
@@ -461,6 +489,25 @@ SELECT
 
 ---
 
+## 👥 Team Members
+
+| Name | Role | Email | LinkedIn |
+| --- | --- | --- | --- |
+| <br>**Abdallah Ahmed** 
+
+ | Data Engineer | abdallah.ahmed@datapioneers.org | [linkedin.com/in/abdallah-ahmed](https://www.google.com/search?q=%23) |
+| <br>**Yousef Elhwehy** 
+
+ | Lead Analyst | yousef.elhwehy@datapioneers.org | [linkedin.com/in/yousef-elhwehy](https://www.google.com/search?q=%23) |
+| <br>**Basel Mohamed** 
+
+ | BI Developer | basel.mohamed@datapioneers.org | [linkedin.com/in/basel-mohamed](https://www.google.com/search?q=%23) |
+| <br>**Moaz Elkersh** 
+
+ | Domain Expert | moaz.elkersh@datapioneers.org | [linkedin.com/in/moaz-elkersh](https://www.google.com/search?q=%23) |
+
+---
+
 ## 👥 Contributing Guidelines
 
 ### Pull Request & Enhancement Procedures
@@ -487,7 +534,7 @@ git push origin feature/analytical-extension-optimization
 ```
 
 
-5. **Open a formal Pull Request for team review.**
+5. **Open a formal Pull Request for review.**
 
 ---
 
