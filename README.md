@@ -507,10 +507,10 @@ SELECT
 
 | Name | Role | Email | LinkedIn |
 | --- | --- | --- | --- |
-| **Abdallah Ahmed** | Data Engineer | abdallah.ahmed@datapioneers.org | [linkedin.com/in/abdallah-ahmed](https://www.google.com/search?q=%23) |
-| **Yousef Elhwehy** | Lead Analyst | yousef.elhwehy@datapioneers.org | [linkedin.com/in/yousef-elhwehy](https://www.google.com/search?q=%23) |
-| **Basel Mohamed** | BI Developer | basel.mohamed@datapioneers.org | [linkedin.com/in/basel-mohamed](https://www.google.com/search?q=%23) |
-| **Moaz Elkersh** | Domain Expert | moaz.elkersh@datapioneers.org | [linkedin.com/in/moaz-elkersh](https://www.google.com/search?q=%23) |
+| **Abdallah Ahmed** | Data Engineer | abd10esa@gmail.com | [linkedin.com/in/abdallah-ahmed]() |
+| **Yousef Elhwehy** | Lead Analyst | yousef566566@gmail.com | [linkedin.com/in/yousef-elhwehy]() |
+| **Basel Mohamed** | BI Developer | gamerbasel81@gmail.com | [linkedin.com/in/basel-mohamed]() |
+| **Moaz Elkersh** | Domain Expert | aelkershmoaz@gmail.com | [linkedin.com/in/moaz-elkersh]() |
 
 ---
 
