@@ -509,8 +509,8 @@ SELECT
 | --- | --- | --- | --- |
 | **Abdallah Ahmed** | Data Engineer | abd10esa@gmail.com | [linkedin.com/in/abdallah-ahmed]() |
 | **Yousef Elhwehy** | Lead Analyst | yousef566566@gmail.com | [linkedin.com/in/yousef-elhwehy]() |
-| **Basel Mohamed** | BI Developer | gamerbasel81@gmail.com | [linkedin.com/in/basel-mohamed]() |
-| **Moaz Elkersh** | Domain Expert | aelkershmoaz@gmail.com | [linkedin.com/in/moaz-elkersh]() |
+| **Basel Mohamed** | Domain Expert   | gamerbasel81@gmail.com | [linkedin.com/in/basel-mohamed]() |
+| **Moaz Elkersh** | BI Developer| aelkershmoaz@gmail.com | [linkedin.com/in/moaz-elkersh]() |
 
 ---
 
