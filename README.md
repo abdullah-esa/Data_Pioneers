@@ -60,10 +60,14 @@ A production-ready data engineering and business intelligence infrastructure bui
  |
 | **Coordinate Handling** | Exact `DECIMAL(10,8)` GPS formatting 
 
- | String/Float conversion lag |
+ | String/Float conversion lag 
+
+ |
 | **BI Cross-Filtering** | Optimized relational primary keys 
 
- | Heavy calculation runtime columns |
+ | Heavy calculation runtime columns 
+
+ |
 
 ---
 
@@ -84,7 +88,9 @@ A production-ready data engineering and business intelligence infrastructure bui
  | Star Schema Relationship Engine 
 
  |
-| **Mapping Engine** | Microsoft Bing Maps API | Precision Geospatial Hotspots 
+| **Mapping Engine** | Microsoft Bing Maps API 
+
+ | Precision Geospatial Hotspots 
 
  |
 
@@ -218,8 +224,14 @@ public.dim_days      ───(1:N)───┘                                 
 
 ### Base System Requirements
 
-* **Server Core:** PostgreSQL 12.0+ Environment
-* **BI Interface:** Power BI Desktop Application
+* 
+**Server Core:** PostgreSQL 12.0+ Environment 
+
+
+* 
+**BI Interface:** Power BI Desktop Application 
+
+
 * **Storage Profile:** 2GB minimum storage space for historical row execution
 
 ### Implementation Blueprint
@@ -267,8 +279,12 @@ psql -h 127.0.0.1 -p 5432 -U postgres -d uk_road_db -f config/sql/quality_valida
 #### 5. Connecting the BI Application Layer
 
 * Launch **Power BI Desktop**.
+
+
 * Choose **Get Data** $\rightarrow$ **PostgreSQL Database**.
 * Link to your host `127.0.0.1` using the database configuration matching step 2.
+
+
 * Confirm standard **Import Mode** to keep the performance capabilities of the optimized Star Schema model intact.
 
 
@@ -439,9 +455,7 @@ The core operational safety metrics across the historical scope are established 
  |
 | **Fixed Object Collisions** | 84,000 (84K) 
 
- | Incidents involving impacts with static infrastructure.
-
- |
+ | Incidents involving impacts with static infrastructure. |
 
 ---
 
@@ -493,18 +507,10 @@ SELECT
 
 | Name | Role | Email | LinkedIn |
 | --- | --- | --- | --- |
-| <br>**Abdallah Ahmed** 
-
- | Data Engineer | abdallah.ahmed@datapioneers.org | [linkedin.com/in/abdallah-ahmed](https://www.google.com/search?q=%23) |
-| <br>**Yousef Elhwehy** 
-
- | Lead Analyst | yousef.elhwehy@datapioneers.org | [linkedin.com/in/yousef-elhwehy](https://www.google.com/search?q=%23) |
-| <br>**Basel Mohamed** 
-
- | BI Developer | basel.mohamed@datapioneers.org | [linkedin.com/in/basel-mohamed](https://www.google.com/search?q=%23) |
-| <br>**Moaz Elkersh** 
-
- | Domain Expert | moaz.elkersh@datapioneers.org | [linkedin.com/in/moaz-elkersh](https://www.google.com/search?q=%23) |
+| **Abdallah Ahmed** | Data Engineer | abdallah.ahmed@datapioneers.org | [linkedin.com/in/abdallah-ahmed](https://www.google.com/search?q=%23) |
+| **Yousef Elhwehy** | Lead Analyst | yousef.elhwehy@datapioneers.org | [linkedin.com/in/yousef-elhwehy](https://www.google.com/search?q=%23) |
+| **Basel Mohamed** | BI Developer | basel.mohamed@datapioneers.org | [linkedin.com/in/basel-mohamed](https://www.google.com/search?q=%23) |
+| **Moaz Elkersh** | Domain Expert | moaz.elkersh@datapioneers.org | [linkedin.com/in/moaz-elkersh](https://www.google.com/search?q=%23) |
 
 ---
 
@@ -542,15 +548,9 @@ git push origin feature/analytical-extension-optimization
 
 | Platform Version | Release Date | Functional Updates & Engineering Core |
 | --- | --- | --- |
-| **v1.0.0** | 2026-06-15 | Database initialization; migration from raw CSV to normalized relational layouts.
-
- |
-| **v1.1.0** | 2026-06-30 | Implemented the Power BI reporting tier, mapping custom visuals for environmental and infrastructure profiling.
-
- |
-| **v1.2.0** | 2026-07-11 | Current Release — Polished database index constraints and resolved coordinate data-type mapping quirks.
-
- |
+| **v1.0.0** | 2026-06-15 | Database initialization; migration from raw CSV to normalized relational layouts. |
+| **v1.1.0** | 2026-06-30 | Implemented the Power BI reporting tier, mapping custom visuals for environmental and infrastructure profiling. |
+| **v1.2.0** | 2026-07-11 | Current Release — Polished database index constraints and resolved coordinate data-type mapping quirks. |
 
 ---
 
@@ -569,10 +569,7 @@ git push origin feature/analytical-extension-optimization
 **UK Department for Transport:** For providing the comprehensive historical data foundation (data.gov.uk).
 
 
-* 
-**Egypt Digital Pioneers Initiative (DEPI):** For providing project engineering frameworks and professional guidance.
-
-
+* **Egypt Digital Pioneers Initiative (DEPI):** For providing project engineering frameworks and professional guidance.
 
 ---
 
