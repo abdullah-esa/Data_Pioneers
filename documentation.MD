@@ -1,153 +1,431 @@
-# System Documentation Guide: UK Road Safety Analytics Platform
+# 📄 UK Road Safety Data Pipeline & Analytics Documentation
 
 ---
 
-## 1. Project Overview & Executive Summary
+## Section 1: Project Planning
 
-### Purpose & Problem Statement
+### 1.1. Project Charter
 
-Every year, thousands of lives are impacted by traffic accidents across the United Kingdom. Behind each statistic lies a pattern that can be uncovered to make roads safer. The **UK Safety Road Analytics Platform** was developed by team **Data Pioneers (DEPI R4)** to transform raw historical traffic records into high-fidelity, actionable safety insights through advanced data engineering and interactive business intelligence.
+The UK Road Safety Data Pipeline project is engineered to ingest, model, transform, and visualize large-scale historical traffic accident records. By replacing non-relational flat-file processes with a structured relational database architecture, the system provides reliable, data-backed trends to support municipal safety interventions.
 
-### Target Audience & Value Proposition
+| **Element** | **Description** |
+| --- | --- |
+| **Project Title** | UK Road Safety: Time, Environment & Infrastructure Trends Analysis
 
-This platform is designed for road safety stakeholders, urban planners, law enforcement agencies, and municipal policymakers. By consolidating disparate vehicle and incident logs, the system reveals precise temporal, regional, and environmental risk indicators. These metrics justify data-driven infrastructure investments, targeted speed enforcement, and enhanced emergency response positioning.
+ |
+| **Objective** | Design an end-to-end relational data pipeline and interactive BI dashboard analyzing police-reported traffic incidents to optimize safety interventions.
 
-### High-Level Goals & Objectives
+ |
+| **Sponsor** | Digital Egypt Pioneers Initiative (DEPI) Scholarship Program
 
-* **Identify Critical Trends:** Map out high-risk peak hours, days of the week, and calendar seasons for traffic incidents.
-* **Evaluate Infrastructure Correlation:** Isolate accident concentrations relative to road configurations (e.g., single vs. dual carriageways) and environmental factors.
-* **Improve Emergency Preparedness:** Uncover geographic hotspots to aid in predictive resource allocation for emergency services.
+ |
+| **Core Team** | 1. Abdallah Ahmed (Data Engineering & Pipeline Architecture)<br>
+
+<br>2. Yousef Elhwehy (BI Development & Visualization)<br>
+
+<br>3. Basel Mohamed (Data Quality & Quality Assurance)<br>
+
+<br>4. Moaz Elkersh (Analytics & Insights Verification)
+
+ |
 
 ---
 
-## 2. System Architecture & Technical Design
+### 1.2. Scope Definition
 
-### System Components
+#### ✅ In-Scope
 
-The platform architecture utilizes a robust three-tier data delivery lifecycle:
+* **Database Engineering:** Transitioning flat CSV files into a multi-table relational Star Schema inside a PostgreSQL environment.
 
-1. **Storage & Relational Database Management System (RDBMS):** Powered by **PostgreSQL**, moving away from a flat-file structure to enforce strict normalization and prevent data update anomalies.
-2. **Data Quality & Pre-processing (SQL/EDA):** Direct validation within the engine enforces constraints and precise mathematical data typing.
-3. **Visualization Layer:** **Power BI** consumes the cleaned schema to generate low-latency, highly cross-filtered dashboards.
 
-### Data Model Definition
+* **Data Integrity & Preprocessing:** Formatting datetime parameters, cleaning missing records, and enforcing explicit strict constraints (Primary and Foreign keys).
 
-The architecture leverages an optimized **Star Schema** to manage relationships between two transactional fact tables and multiple descriptive dimensions.
+
+* **Analytical Metric Development:** Constructing centralized business intelligence calculations including Fatality Rates, Casualty Rates, and Temporal Trends.
+
+
+* **Interactive Dashboard Design:** Delivering a 3-page interactive dashboard with cross-filtering components across time, environment, and geography.
+
+
+
+#### ❌ Out-of-Scope
+
+* Real-time live streaming infrastructure or real-time roadside sensor integrations.
+* Predictive machine learning forecasting models for accident occurrences.
+* Public-facing client notification web applications.
+
+---
+
+### 1.3. Methodology & Agile Sprint Plan
+
+* **Sprint 1 (Week 1): Schema Modeling & ETL Architecture**
+* Deconstruct raw source datasets into structured entity granularities (Incident vs. Participant levels).
+
+
+* Initialize database environments with strict typing (`DECIMAL`, `SERIAL`, explicit relational constraints).
+
+
+
+
+* **Sprint 2 (Week 2): Data Quality Isolation & Imputation**
+* Execute exploratory aggregate queries within the database engine to check distribution parameters.
+
+
+* Isolate missing data features (`Age_of_Vehicle`, `Engine_Capacity_.CC.`) and run cleaning and validation queries to ensure zero-NULL fields.
+
+
+
+
+* **Sprint 3 (Week 3): Analytical Modeling & Aggregation**
+* Generate centralized dimensional data summaries and calculate KPI matrix factors.
+
+
+* Perform multi-dimensional correlation matrix analyses matching environmental factors with infrastructure categories.
+
+
+
+
+* **Sprint 4 (Week 4): BI Visualization & Front-End Delivery**
+* Map data layers to an optimized visual system layout across 3 dedicated interactive views.
+
+
+* Implement user parameters, cross-filtering matrices, and complete performance testing.
+
+
+
+
+
+---
+
+### 1.4. Risk Management
+
+* **Risk 1: Performance Degradation From Massive Row Counts**
+* *Description:* Query execution delays during multi-table joins over millions of source rows.
+
+
+* *Mitigation:* Utilize optimized database structures (Star Schema) and indexing strategies on Foreign Key references to boost performance in high-volume environments.
+
+
+
+
+* **Risk 2: Invalid Data Quality Fields in Historical Attributes**
+* *Description:* Null entries or unaligned fields (`Age_of_Vehicle`, `Engine_Capacity_.CC.`) skewing statistical averages.
+
+
+* *Mitigation:* Implement verification constraints and validation scripts inside PostgreSQL to check conditions before dashboard ingestion.
+
+
+
+
+* **Risk 3: Ineffective UI Layer From Layout Crowding**
+* *Description:* Misaligned visual hierarchies making critical insights difficult to scannably extract.
+
+
+* *Mitigation:* Divide front-end systems into three distinct analytical categories using clean card containers and a unified color scheme.
+
+
+
+
+
+---
+
+## Section 2: Stakeholder Analysis
+
+### 2.1. Stakeholder Register
+
+| **Stakeholder Class** | **Functional Role** | **Core Analytics Need** | **Influence / Interest** |
+| --- | --- | --- | --- |
+| **Municipal Engineers** | Primary End-User | Pinpoint high-risk infrastructure combinations (e.g., Single Carriageways under rainy conditions).
+
+ | High / High |
+| **Emergency Services** | Operations Planner | Evaluate temporal charts to optimize regional team deployment during peak rush hours.
+
+ | High / Medium |
+| **Civic Committees** | Safety Auditor | Monitor macro performance indicators (Fatality Rates, Casualty Densities) over time.
+
+ | Medium / High |
+| **Core Dev Team** | Data Architects | Build scalable database structures preventing update anomalies and processing lag.
+
+ | High / High |
+
+---
+
+### 2.2. User Personas
+
+#### 👤 Persona 1: Marcus – Infrastructure Engineer (Municipal Planning)
+
+* **Demographics:** 44 years old, Civil Engineer specializing in urban road infrastructure safety layout.
+* **Context:** Requires a reliable view of how specific road geometries (Roundabouts vs. Single Carriageways) perform under environmental stresses.
+
+
+* **Pain Points:** Flat-file reports mask complex interactions, making it hard to see if weather or road design is the primary factor.
+
+
+* **Dashboard Requirement:** Interactive Environmental Risk Matrix and Infrastructure Breakdown charts.
+
+
+
+#### 👤 Persona 2: Chief Inspector Davies – Emergency Response Coordinator
+
+* **Demographics:** 51 years old, Traffic Command and emergency responder resource manager.
+* **Context:** Tasked with scheduling patrols and managing localized accident responses.
+* **Pain Points:** Unpredictable spikes in daily accident numbers create major staffing bottlenecks.
+
+
+* **Dashboard Requirement:** Temporal Trends component displaying precise hourly distribution peaks and weekday-to-weekend patterns.
+
+
+
+---
+
+### 2.3. Requirements Mapping
+
+> * **Analytical Goal:** Isolate high-risk crash factors to guide proactive municipal intervention.
+> * **Technical Solution:** Build dynamic interactive charts matching road classification with weather characteristics.
+> 
+> 
+> * **Actionable Impact:** Pinpoints the precise combination where accidents spike—such as Single Carriageway segments under rainy parameters—enabling engineers to target structural re-pavement projects exactly where they are needed most.
+> 
+> 
+> 
+> 
+
+---
+
+## Section 3: Database Design (Data Model)
+
+### 3.1. Conceptual Model
+
+The system architecture transitions away from a single tabular format ("flat file") to eliminate data redundancy and prevent update anomalies. The data design separates structural facts into two granular transactional entities—**Incident Level Details** (unique accident events) and **Participant Level Attributes** (individual vehicles and driver specifications)—linked to localized dimensional features through a One-to-Many relational network.
+
+---
+
+### 3.2. Logical Data Dictionary
+
+#### `fact_accidents` (Core Transaction Table)
+
+Tracks the primary physical data points recorded for each collision event.
+
+| Field Name | Data Type | Key Type | Transformation/Business Logic | Quality Flag |
+| --- | --- | --- | --- | --- |
+| `Accident_Index` | `VARCHAR` | Primary Key | Extracted as the alphanumeric unique event tracking index from source data.
+
+ | High (100% Unique) |
+| `Date` | `DATE` | Attribute | Converted string formatting into optimized system date notation.
+
+ | High |
+| `Time` | `TIME` | Attribute | Isolated hourly temporal strings into clean time tracking metrics.
+
+ | High |
+| `Latitude` | `DECIMAL(10,8)` | Attribute | Precision typed decimal for high-accuracy geographical mapping.
+
+ | High |
+| `Longitude` | `DECIMAL(11,8)` | Attribute | Precision typed decimal for high-accuracy geographical mapping.
+
+ | High |
+| `Number_of_Casualties` | `INTEGER` | Metric | Extracted directly; used for rolling aggregation totals across charts.
+
+ | High |
+| `weather_id` | `INTEGER` | Foreign Key | Linked to `dim_weather` to normalize environmental variables.
+
+ | High (0% Nulls Post-ETL) |
+| `severity_id` | `INTEGER` | Foreign Key | Linked to `dim_severity` to evaluate event impact tiers.
+
+ | High (0% Nulls Post-ETL) |
+| `road_type_id` | `INTEGER` | Foreign Key | Linked to `dim_roadtype` to track physical infrastructure setup.
+
+ | High (0% Nulls Post-ETL) |
+
+#### `fact_vehicles` (Participant Table)
+
+Tracks explicit vehicle profiles and driver demographics involved in the respective accident instances.
+
+| Field Name | Data Type | Key Type | Transformation/Business Logic | Quality Flag |
+| --- | --- | --- | --- | --- |
+| `Vehicle_ID` | `SERIAL` | Primary Key | Auto-incrementing index isolating unique vehicle participant records.
+
+ | High (System Generated) |
+| `Accident_Index` | `VARCHAR` | Foreign Key | Connects multiple vehicle records back to a single accident incident.
+
+ | High (Relational Join) |
+| `Age_of_Vehicle` | `INTEGER` | Attribute | Validated using conditional SQL structures to impute structural missing flags to `0`.
+
+ | Validated (Zero Nulls) |
+| `Engine_Capacity_.CC.` | `INTEGER` | Attribute | Standardized engine data; handled missing values directly in PostgreSQL.
+
+ | Validated (Zero Nulls) |
+| `Sex_of_Driver` | `VARCHAR` | Attribute | Cleaned categorical string tracking gender breakdowns.
+
+ | High |
+| `Age_Band_of_Driver` | `VARCHAR` | Attribute | Categorized age fields into group brackets for scannable visualization.
+
+ | High |
+
+---
+
+### 3.3. Data Relationships (Star Schema)
+
+The database architecture runs a highly optimized **Star Schema** designed to drive dashboard performance and eliminate processing overhead during cross-filtering interactions.
+
+```mermaid
+erDiagram
+    fact_accidents {
+        varchar Accident_Index PK
+        date Date
+        time Time
+        decimal Latitude
+        decimal Longitude
+        int Number_of_Casualties
+        int weather_id FK
+        int severity_id FK
+        int road_type_id FK
+        int light_id FK
+        int day_id FK
+    }
+    fact_vehicles {
+        int Vehicle_ID PK
+        varchar Accident_Index FK
+        int Age_of_Vehicle
+        int Engine_Capacity_CC
+        varchar Sex_of_Driver
+        varchar Age_Band_of_Driver
+        int make_id FK
+    }
+    dim_weather {
+        int weather_id PK
+        varchar description
+    }
+    dim_severity {
+        int severity_id PK
+        varchar description
+    }
+    dim_roadtype {
+        int road_type_id PK
+        varchar description
+    }
+    dim_light {
+        int light_id PK
+        varchar description
+    }
+    dim_days {
+        int day_id PK
+        varchar description
+    }
+
+    fact_accidents ||--o{ fact_vehicles : "1-to-Many Incident-to-Participant Relationship"
+    fact_accidents }o--|| dim_weather : "references"
+    fact_accidents }o--|| dim_severity : "references"
+    fact_accidents }o--|| dim_roadtype : "references"
+    fact_accidents }o--|| dim_light : "references"
+    fact_accidents }o--|| dim_days : "references"
 
 ```
-                 [dim_severity]      [dim_weather]
-                       |                   |
- [dim_light] --- [fact_accidents] === [fact_vehicles] --- [dim_make]
-                       |                   |
-  [dim_days] ---- [dim_roadtype]           +------------- (Age, Driver Sex, etc.)
+
+---
+
+## Section 4: UI/UX Design (Dashboard Blueprint)
+
+### 4.1. Dashboard Theme & Color Palette
+
+The business intelligence dashboard applies a clean color scheme built for maximum analytical scanning and fast insight extraction.
+
+* **Background Canvas:** Light Slate Gray background to optimize contrast and reduce eye strain over extended review periods.
+
+
+* **Visual Container Tiers:** Crisp white card blocks with rounded corners to establish clear structural boundaries.
+
+
+* **Primary Action Fill:** Deep Cobalt Blue accent tracking key volumes (`Total Accidents`, `Casualty Counts`).
+
+
+* **Alert Status Palette:** Multi-colored markers highlighting demographic and gender variances across system visuals.
+
+
+
+---
+
+### 4.2. Page Layout & Structure
+
+#### 📊 Page 1: Time & Trends Analysis
+
+* **KPI Banner Matrix:** High-visibility metric cards tracking total accident volumes, casualties, fatalities, object collisions, and mass casualty numbers.
+
+
+* **Hourly Distribution Timeline:** Continuous line area graph highlighting daily commute peaks (8:00 AM & 5:00 PM rush hours).
+
+
+* **Weekly Breakdown:** Horizontal chart highlighting weekend vs. weekday patterns (identifying Friday as a volume peak).
+
+
+* **Monthly Seasonal Tracker:** Linear timeline mapping accident trends across seasonal cycles.
+
+
+
+#### 🛠️ Page 2: Environment & Infrastructure Analysis
+
+* **Rate Performance Cards:** Displays specific calculated variables like Fatality Rates, Casualty Rates, and yearly averages.
+
+
+* **Environmental Interaction Matrix:** Cross-tabular heat grid analyzing environmental variables (e.g., Rain, Fog) against road configurations.
+
+
+* **Infrastructure Ranking:** Clean horizontal chart tracking incident density across road setups (Single Carriageways, Roundabouts, Slip Roads).
+
+
+* **Visibility Factor Analysis:** Donut chart plotting lighting conditions (Daylight vs. Dark lighting).
+
+
+
+#### 📍 Page 3: Road Infrastructure & Geographic Insights
+
+* **Geospatial Map Canvas:** Detailed point mapping showing regional hot spots and high-density accident clusters.
+
+
+* **Demographic Factor Breakdown:** Demographic population chart analyzing age groups alongside gender parameters.
+
+
+* **Surface Constraint Tracker:** Volume indicator measuring the impact of dry vs. compromised road surfaces.
+
+
+
+---
+
+### 4.3. User Interaction & Cross-Filtering
+
+The dashboard leverages deep relational cross-filtering to streamline user investigation pathways.
+
+```text
+[User selects filter option: Severity = "Fatal" + Weather = "Raining"]
+                         ↓
+[The system passes context down through the Star Schema relationships]
+                         ↓
+[Dashboard components update automatically across all sheets]
+  - KPI Cards: Instantly recalculate fatalities and totals[cite: 1].
+  - Time Charts: Pinpoint specific high-fatality hours during wet weather[cite: 1].
+  - Map Canvas: Filters out safe areas to display hot spots on high-speed roads[cite: 1].
 
 ```
 
-#### Core Transaction Entities (Fact Tables)
+---
 
-* **`fact_accidents` (Incident Level):** Captures unique event entries (`Accident_Index`) along with date, exact time, road metrics, and casualty aggregations.
-* **`fact_vehicles` (Participant Level):** Tracks demographic information, vehicle configurations, and mechanics involved per incident, connected via a standard $1:\text{Many}$ relationship to support multiple vehicles per accident without data duplication.
+## Appendices
 
-#### Key Dimension Entities
+### Appendix A: Validation Statements
 
-* **`dim_weather`:** Attributes include `weather_id` and weather descriptions.
-* **`dim_roadtype`:** Attributes include `road_type_id` and infrastructure classification types.
-* **`dim_light`:** Attributes include `light_id` and light conditions.
-* **`dim_severity`:** Attributes include `severity_id` and severity definitions (Fatal, Serious, Slight).
-* **`dim_days`:** Attributes include `day_id` and day-of-week textual descriptions.
+To guarantee data integrity before dashboard ingestion, clean, validation queries are run within PostgreSQL to ensure all critical records resolve cleanly to zero null values.
 
-### Data Pipeline Flow
+```sql
+-- Final Data Quality Assurance & Validation Query
+SELECT
+  (SELECT SUM(CASE WHEN "Age_of_Vehicle" IS NULL THEN 1 ELSE 0 END) FROM public.fact_vehicles) AS missing_age,
+  (SELECT SUM(CASE WHEN "Engine_Capacity_.CC." IS NULL THEN 1 ELSE 0 END) FROM public.fact_vehicles) AS missing_engine,
+  (SELECT SUM(CASE WHEN "Junction_Control" IS NULL THEN 1 ELSE 0 END) FROM public.fact_accidents) AS missing_junction,
+  (SELECT SUM(CASE WHEN "Driver_IMD_Decile" IS NULL THEN 1 ELSE 0 END) FROM public.fact_vehicles) AS missing_driver_imd;
 
-1. **Ingestion:** Granular records spanning 2004–2017 are ingested from the UK Department for Transport (data.gov.uk).
-2. **Transformation & Constraints Enforcements:** Primary and foreign keys are explicitly declared. Precision handling sets spatial variables as `DECIMAL(10,8)` and handles clean native `TIME/DATE` casting.
-3. **Validation:** Aggregation scripts sweep for orphan indexes or missing values, confirming zero null fields across essential analytics criteria.
-4. **Presentation:** Power BI evaluates the optimized star schema directly, executing seamless slicing configurations on the live interface.
+```
 
 ---
 
-## 3. Key Features & Functionality
-
-The live dashboard application contains three interconnected analytical views:
-
-### Interface View 1: Road Accidents: Time & Trends Analysis
-
-* **Global Filters Header:** Allows users to filter the workspace dynamically by *Year*, *Severity*, *Area Type*, and *Weather*.
-* **KPI Scorecard Panel:** High-level totals including **2M Total Accidents**, **3M Total Casualties**, **49K Total Fatalities**, and breakout figures for serious vs. fatal distributions.
-* **Hourly Distribution Line Graph:** Plots peaks aligned with high-volume morning commute windows (8:00 AM – 9:00 AM) and afternoon rush hours (4:00 PM – 6:00 PM).
-* **Weekly Distribution Ring (Donut):** Highlights that Friday is historically the most dangerous day for road users (accounting for 16.37% of incidents).
-* **Monthly Historical Trend Chart:** Tracks long-term macroeconomic safety patterns month-over-month.
-
-### Interface View 2: Environment & Infrastructure Analysis
-
-* **Strategic Ratio Tiles:** Calculates critical performance baselines: **Fatality Rate (2.40%)**, **Casualties per Accident (1.35)**, and a baseline norm of **157.48K Accidents per Year**.
-* **Environmental Risk Cross-Matrix:** Pairs precise weather variations alongside explicit infrastructure types. This directly highlights that single carriageways under clear weather conditions account for the highest accident volume (>1.2M), suggesting that driver behavior or traffic volume dominates environmental variables.
-* **Light Conditions Breakdown:** A donut chart showing that **73.1%** of accidents happen during daylight.
-
-### Interface View 3: Road Infrastructure & Geographic Insights
-
-* **Geospatial Hotspot Map:** Interactive regional map powered by Bing Maps detailing localized accident clusters across the UK infrastructure grid.
-* **Urban vs. Rural Distribution Bar Chart:** Compares accident frequency by area type, showing **1,322.34K Urban** incidents vs. **724.76K Rural** incidents.
-* **Road Surface Conditions Bar Chart:** Separates surface factors, showing that dry surfaces hold the highest incident count (1.42M).
-* **Demographic Driver Matrix:** Breaks down incident frequency by driver age group and biological sex, showing a higher incidence rate among male drivers across almost all cohorts.
-
----
-
-## 4. User Guide & Navigation (The "How-To")
-
-### Basic Interactions & Filtering
-
-1. To narrow down the dataset to a specific time window or environment, navigate to the top filter header.
-2. Click the dropdown selection element for **Year**, **Severity**, **Area Type**, or **Weather**.
-3. Select your target parameter value (e.g., set Weather to `"Raining no high winds"`). The entire dashboard will automatically cross-filter.
-
-### Navigating Report Views
-
-The interface features dedicated view selection buttons labeled **[1]**, **[2]**, and **[3]** located at the top-right of the dashboard header.
-
-* Click **[1]** to open the **Time & Trends Analysis** workspace.
-* Click **[2]** to toggle to the **Environment & Infrastructure Matrix**.
-* Click **[3]** to view **Geographic Insights & Driver Demographics**.
-
-### Common Analytical Workflows
-
-#### Workflow A: Investigating High-Severity Rural Incident Factors
-
-1. Set the **Area Type** global filter dropdown option to `Rural`.
-2. Set the **Severity** filter to `Fatal` or `Serious`.
-3. Navigate to View **[2]** to observe which infrastructure layouts (e.g., Single Carriageway) reflect heightened casualty counts under these criteria.
-
-#### Workflow B: Interrogating Localized Regional Trends
-
-1. Navigate to View **[3]** to display the geospatial map canvas.
-2. Use standard mouse wheel scrolling to zoom into target metropolitan clusters (e.g., London, Manchester, Leeds).
-3. Click directly on an accident hotspot circle cluster to update the surrounding charts to reflect localized demographic and road surface breakdowns.
-
----
-
-## 5. Data Glossary
-
-| Metric / Term | Definition | Operational Formula / Source |
-| --- | --- | --- |
-| **Total Accidents** | Gross count of unique police-reported traffic accidents recorded within the target observation parameters. | `COUNT(fact_accidents.Accident_Index)` |
-| **Total Casualties** | Total number of individuals sustaining injuries of any severity level as a result of recorded traffic events. | `SUM(fact_accidents.Number_of_Casualties)` |
-| **Total Fatalities** | Gross number of deceased individuals resulting directly from recorded traffic incidents. | Sourced from filtered incident event casualty logs |
-| **Fatality Rate** | The mathematical percentage of recorded traffic incidents that resulted in at least one human fatality. | $\left( \frac{\text{Total Fatal Accidents}}{\text{Total Accidents}} \right) \times 100$ |
-| **Casualties per Accident** | The mean number of injured victims associated with each single recorded accident record. | $\frac{\text{Total Casualties}}{\text{Total Accidents}}$ |
-| **Accidents per Year** | Normalized annual traffic accident distribution over the active historical reporting timeline. | $\frac{\text{Total Incident Count}}{\text{Total Unique Active Years}}$ |
-| **Single Carriageway** | A roadway configuration where opposing traffic flows are not physically separated by a central reservation barrier. | Structural categorical attribute in database schema |
-
----
-
-## 6. Appendices & Assumptions
-
-### Technical Deployment Requirements
-
-* **Hosting Context:** Power BI Service Cloud deployment or Power BI Desktop client installations.
-* **Data Source Connectivity:** Active connection to the normalized PostgreSQL destination repository containing the initialized `uk_road_db` database instances.
-* **Geospatial Visualization:** Requires unhindered outbound network access to Bing Maps API services to dynamically resolve map point layouts.
-
-### Platform Design Assumptions
-
-1. **Reporting Baseline:** It is assumed that all metrics displayed across the primary scorecards represent historical records collected between **2004 and 2017**, as detailed in the technical scope slides.
-2. **Completeness of Data:** Missing entries or undefined historical rows are assumed to have been fully standardized during database validation, ensuring clean metric processing across all dashboard panels.
-3. **Fatal vs. Non-Fatal Ratios:** The overall platform metrics focus on vehicle incidents reported directly to law enforcement agencies; minor incidents that did not result in a police report are excluded from the underlying datasets.
+**Document Version:** 2.4
+**Project Group:** Data Pioneers (DEPI R4)
+**Architecture Owner:** Abdallah Ahmed
